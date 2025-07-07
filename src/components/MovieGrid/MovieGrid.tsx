@@ -9,20 +9,21 @@ interface MovieGridProps {
 export default function MovieGrid({ movies, onSelect }: MovieGridProps) {
     if (movies.length === 0) return null;
     return (
-        <ul className={css.grid}>
-        {movies.map((movie) => (
-            <li key={movie.id} className={css.item} onClick={() => onSelect(movie)}>
+       <ul className={css.grid}>
+      {movies.map(movie => (
+        <li key={movie.id} onClick={() => onSelect(movie)}>
+          <div className={css.card}>
             <img
-                className={css.poster}
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
+              className={css.image}
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              loading="lazy"
             />
-            <div className={css.info}>
-                <h2 className={css.title}>{movie.title}</h2>
-            </div>
-            </li>
-        ))}
-        </ul>
+            <h2 className={css.title}>{movie.title}</h2>
+          </div>
+        </li>
+      ))}
+    </ul>
     );
     }
      
