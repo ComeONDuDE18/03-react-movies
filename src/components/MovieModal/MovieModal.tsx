@@ -28,6 +28,7 @@ export default function MovieModal({ movie, onClose }: MovieModalProps) {
       onClose();
     }
   };
+  
 
   return createPortal(
     <div
